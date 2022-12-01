@@ -11,7 +11,7 @@ function convertToBytes(length, unit){
     if(typeof data[unit] === undefined){
         console.error('Nie mam takiej jednostki')
     }
-    
+
     return data[unit] * length
 
    
@@ -29,7 +29,8 @@ function convertToBytes(length, unit){
     }
 }
 
-let size = 0;
+const getTotalSize = () => {
+    let size = 0;
 // files.forEach(f => {
 //     // size += convertToBytes(f.size.length, f.size.unit)
 //     const { size: {length, unit}} = f
@@ -39,4 +40,9 @@ files.forEach(({ size: {length, unit = "B"}})=> {
    size += convertToBytes(length, unit)
 })
 
-console.log(size)
+return size
+}
+
+
+
+console.log(getTotalSize())
